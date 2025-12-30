@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium Spa Color Palette */
+    --background: 38 30% 96%;
+    --foreground: 30 15% 15%;
+
+    --card: 40 35% 98%;
+    --card-foreground: 30 15% 15%;
+
+    --popover: 40 35% 98%;
+    --popover-foreground: 30 15% 15%;
+
+    /* Sage Green Primary */
+    --primary: 145 20% 40%;
+    --primary-foreground: 40 35% 98%;
+
+    /* Warm Cream Secondary */
+    --secondary: 38 35% 92%;
+    --secondary-foreground: 30 15% 20%;
+
+    /* Muted Sand */
+    --muted: 35 25% 88%;
+    --muted-foreground: 30 10% 40%;
+
+    /* Gold Accent */
+    --accent: 42 55% 55%;
+    --accent-foreground: 30 15% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 35% 98%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 145 20% 40%;
+
+    --radius: 1rem;
+
+    /* Glassmorphism */
+    --glass-bg: 40 35% 98%;
+    --glass-border: 40 30% 90%;
+    --glass-shadow: 30 15% 15%;
+
+    /* Custom Tokens */
+    --sand: 35 30% 90%;
+    --cream: 40 35% 95%;
+    --sage: 145 20% 45%;
+    --sage-light: 145 25% 85%;
+    --gold: 42 55% 55%;
+    --gold-light: 42 45% 75%;
+    --charcoal: 30 10% 20%;
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 38 30% 96%;
+    --sidebar-foreground: 30 15% 15%;
+    --sidebar-primary: 145 20% 40%;
+    --sidebar-primary-foreground: 40 35% 98%;
+    --sidebar-accent: 42 55% 55%;
+    --sidebar-accent-foreground: 30 15% 15%;
+    --sidebar-border: 35 20% 85%;
+    --sidebar-ring: 145 20% 40%;
+  }
+
+  .dark {
+    --background: 30 15% 10%;
+    --foreground: 38 30% 96%;
+
+    --card: 30 15% 12%;
+    --card-foreground: 38 30% 96%;
+
+    --popover: 30 15% 12%;
+    --popover-foreground: 38 30% 96%;
+
+    --primary: 145 25% 50%;
+    --primary-foreground: 30 15% 10%;
+
+    --secondary: 30 15% 18%;
+    --secondary-foreground: 38 30% 96%;
+
+    --muted: 30 15% 20%;
+    --muted-foreground: 35 20% 60%;
+
+    --accent: 42 55% 55%;
+    --accent-foreground: 30 15% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 38 30% 96%;
+
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 145 25% 50%;
+
+    --glass-bg: 30 15% 15%;
+    --glass-border: 30 15% 25%;
+
+    --sidebar-background: 30 15% 10%;
+    --sidebar-foreground: 38 30% 96%;
+    --sidebar-primary: 145 25% 50%;
+    --sidebar-primary-foreground: 30 15% 10%;
+    --sidebar-accent: 42 55% 55%;
+    --sidebar-accent-foreground: 30 15% 10%;
+    --sidebar-border: 30 15% 20%;
+    --sidebar-ring: 145 25% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Base */
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/20 shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/50 shadow-xl rounded-2xl;
+  }
+
+  .glass-panel {
+    @apply bg-white/50 backdrop-blur-xl border border-white/30 shadow-2xl;
+  }
+
+  /* Premium Button Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium 
+           transition-all duration-300 ease-out
+           hover:shadow-lg hover:shadow-primary/30 hover:scale-105
+           active:scale-95;
+  }
+
+  .btn-glass {
+    @apply glass px-8 py-4 rounded-full font-medium 
+           transition-all duration-300 ease-out
+           hover:bg-white/80 hover:shadow-xl hover:scale-105
+           active:scale-95;
+  }
+
+  .btn-gold {
+    @apply bg-accent text-accent-foreground px-8 py-4 rounded-full font-medium 
+           transition-all duration-300 ease-out
+           hover:shadow-lg hover:shadow-accent/40 hover:scale-105
+           active:scale-95;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 40px hsl(var(--accent) / 0.4);
+  }
+
+  .glow-soft {
+    box-shadow: 0 8px 32px hsl(var(--glass-shadow) / 0.1);
+  }
+
+  /* Section Styling */
+  .section-padding {
+    @apply py-20 md:py-32 px-4 md:px-8;
+  }
+
+  /* Elegant Text */
+  .heading-xl {
+    @apply text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-5xl font-serif font-medium leading-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-serif font-medium;
+  }
+
+  .text-body {
+    @apply text-base md:text-lg font-sans text-muted-foreground leading-relaxed;
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Shimmer Effect */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--gold-light) / 0) 0%,
+      hsl(var(--gold-light) / 0.4) 50%,
+      hsl(var(--gold-light) / 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom Gradients */
+  .gradient-sand {
+    background: linear-gradient(180deg, hsl(var(--sand)) 0%, hsl(var(--cream)) 100%);
+  }
+
+  .gradient-sage {
+    background: linear-gradient(135deg, hsl(var(--sage)) 0%, hsl(var(--sage-light)) 100%);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+  }
+
+  .gradient-glass {
+    background: linear-gradient(135deg, hsl(var(--glass-bg) / 0.8) 0%, hsl(var(--glass-bg) / 0.4) 100%);
+  }
+
+  /* Text Gradient */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  /* Decorative Line */
+  .line-gold {
+    @apply h-px bg-gradient-to-r from-transparent via-accent to-transparent;
+  }
+}
